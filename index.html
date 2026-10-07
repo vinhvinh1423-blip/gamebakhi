@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ai là người bá khí nhất</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         MÀN HÌNH BẮT ĐẦU
+    ========================== -->
+
+    <div id="startScreen" class="screen">
+
+        <img
+            src="logo.png"
+            class="logo"
+            alt="Logo">
+
+        <h1>AI LÀ NGƯỜI BÁ KHÍ NHẤT</h1>
+
+        <p>
+            TRÊN KHÔNG GIAN MẠNG
+        </p>
+
+        <button onclick="startGame()">
+            🎮 BẮT ĐẦU CHƠI
+        </button>
+
+    </div>
+
+
+
+    <!-- =========================
+         MÀN HÌNH GAME
+    ========================== -->
+
+    <div id="gameScreen" class="game hidden">
+
+        <!-- KHU VỰC CHÍNH -->
+
+        <div class="main">
+
+
+            <!-- LOGO -->
+
+            <img
+                src="logo.png"
+                class="gameLogo"
+                alt="Logo">
+
+
+            <!-- THÔNG TIN -->
+
+            <div class="info">
+
+                <div>
+                    CÂU
+                    <span id="questionNumber">1</span>
+                    / 10
+                </div>
+
+                <div class="score">
+                    BÁ KHÍ:
+                    <span id="score">0</span>
+                </div>
+
+            </div>
+
+
+            <!-- CÂU HỎI -->
+
+            <div class="questionBox">
+
+                <img
+                    id="questionImage"
+                    class="questionImage"
+                    src=""
+                    alt="Ảnh câu hỏi">
+
+                <h2 id="questionText">
+                    Câu hỏi
+                </h2>
+
+            </div>
+
+
+            <!-- ĐÁP ÁN -->
+
+            <div class="answers">
+
+                <button onclick="chooseAnswer(0)">
+                    <b>A</b>
+                    <span id="answer0"></span>
+                </button>
+
+                <button onclick="chooseAnswer(1)">
+                    <b>B</b>
+                    <span id="answer1"></span>
+                </button>
+
+                <button onclick="chooseAnswer(2)">
+                    <b>C</b>
+                    <span id="answer2"></span>
+                </button>
+
+                <button onclick="chooseAnswer(3)">
+                    <b>D</b>
+                    <span id="answer3"></span>
+                </button>
+
+            </div>
+
+
+            <!-- THÔNG BÁO -->
+
+            <div id="message"></div>
+
+
+            <!-- TRỢ GIÚP -->
+
+            <div class="helps">
+
+                <button
+                    id="fiftyBtn"
+                    onclick="fiftyFifty()">
+                    50:50
+                </button>
+
+                <button
+                    id="hintBtn"
+                    onclick="hint()">
+                    💡 GỢI Ý
+                </button>
+
+                <button
+                    id="skipBtn"
+                    onclick="skipQuestion()">
+                    ⏭️ BỎ QUA
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             THANG BÁ KHÍ
+        ========================== -->
+
+        <div class="ladder">
+
+            <h2>
+                🏆 THANG BÁ KHÍ
+            </h2>
+
+            <div data-level="10 🔥">
+                <span>10 </span>
+                <strong>100 🔥</strong>
+            </div>
+
+            <div data-level="9 🔥">
+                <span>9 </span>
+                <strong>90 🔥</strong>
+            </div>
+
+            <div data-level="8 🔥">
+                <span>8</span>
+                <strong>80 🔥</strong>
+            </div>
+
+            <div data-level="7 🔥">
+                <span>7</span>
+                <strong>70 🔥</strong>
+            </div>
+
+            <div data-level="6 🔥">
+                <span>6</span>
+                <strong>60 🔥</strong>
+            </div>
+
+            <div data-level="5 🔥">
+                <span>5</span>
+                <strong>50 🔥</strong>
+            </div>
+
+            <div data-level="4 🔥">
+                <span>4</span>
+                <strong>40 🔥</strong>
+            </div>
+
+            <div data-level="3 🔥">
+                <span>3</span>
+                <strong>30 🔥</strong>
+            </div>
+
+            <div data-level="2 🔥">
+                <span>2</span>
+                <strong>20 🔥</strong>
+            </div>
+
+            <div data-level="1 🔥">
+                <span>1</span>
+                <strong>10 🔥</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         MÀN HÌNH KẾT QUẢ
+    ========================== -->
+
+    <div id="resultScreen" class="screen hidden">
+
+        <img
+            src="logo.png"
+            class="logo"
+            alt="Logo">
+
+        <h1>🎉 HOÀN THÀNH!</h1>
+
+        <p>
+            ĐIỂM BÁ KHÍ CỦA BẠN
+        </p>
+
+        <div
+            id="finalScore"
+            class="finalScore">
+            0
+        </div>
+
+        <button onclick="startGame()">
+            🔄 CHƠI LẠI
+        </button>
+
+    </div>
+
+
+
+    <!-- =========================
+         ÂM THANH
+    ========================== -->
+
+    <audio
+        id="correctSound"
+        src="audio/correct.mp3">
+    </audio>
+
+    <audio
+        id="wrongSound"
+        src="audio/wrong.mp3">
+    </audio>
+
+    <audio
+        id="clickSound"
+        src="audio/click.mp3">
+    </audio>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
